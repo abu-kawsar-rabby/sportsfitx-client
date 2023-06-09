@@ -4,7 +4,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { AuthContext } from "../../../providers/AuthProviders";
 import { useNavigate } from "react-router-dom";
 import { imageUploader } from "../../../api/imageUploader";
-import { addRoom } from "../../../api/rooms";
+import { addClass } from "../../../api/rooms";
 import { toast } from "react-hot-toast";
 
 
@@ -18,47 +18,38 @@ const AddClass = () => {
     const handleSubmit = event => {
         event.preventDefault()
         setLoading(true)
-        const location = event.target.location.value
-        const title = event.target.title.value
-        const price = event.target.price.value
-        const guests = event.target.total_guest.value
-        const bedrooms = event.target.bedrooms.value
-        const bathrooms = event.target.bathrooms.value
-        const description = event.target.description.value
-        const category = event.target.category.value
+        const className = event.target.className.value
         const image = event.target.image.files[0]
+        const price = event.target.price.value
+        const total_seats = event.target.total_seats.value
+        const description = event.target.description.value
 
         // Upload image
         imageUploader(image)
             .then(data => {
-                const roomData = {
-                    location,
-                    title,
+                const classData = {
+                    className,
                     price: parseFloat(price),
-                    guests,
-                    bedrooms,
-                    bathrooms,
+                    total_seats: parseInt(total_seats),
                     description,
                     image: data.data.display_url,
-                    host: {
+                    status: 'pending',
+                    instructor: {
                         name: user?.displayName,
                         image: user?.photoURL,
                         email: user?.email,
                     },
-                    status: 'pending',
-                    category,
                 }
 
-                // post room data to server
-                addRoom(roomData)
+                // post class data to server
+                addClass(classData)
                     .then(data => {
                         console.log(data)
                         setLoading(false)
                         toast.success('Class Added!')
-                        navigate('/dashboard/my-listings')
+                        navigate('/dashboard/my-classes')
                     })
                     .catch(err => console.log(err))
-
                 setLoading(false)
             })
             .catch(err => {

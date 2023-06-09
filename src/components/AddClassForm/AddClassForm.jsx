@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { AuthContext } from '../../providers/AuthProviders';
 const AddClassForm = ({ handleSubmit, loading }) => {
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
     return (
         <div className='w-3/4 mx-auto min-h-[calc(100vh-40px)] text-gray-800 rounded-xl bg-gray-50'>
             <form
@@ -11,15 +11,15 @@ const AddClassForm = ({ handleSubmit, loading }) => {
             >
                 <div className='space-y-6'>
                     <div className='space-y-1 text-sm'>
-                        <label htmlFor='Class' className='block text-gray-600'>
-                            Class Name:
+                        <label htmlFor='className' className='block text-gray-600'>
+                            Class Name
                         </label>
                         <input
                             className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500  '
-                            name='Class'
-                            id='Class'
+                            name='className'
+                            id='className'
                             type='text'
-                            placeholder='Class'
+                            placeholder='className'
                             required
                         />
                     </div>
@@ -29,7 +29,7 @@ const AddClassForm = ({ handleSubmit, loading }) => {
                         <label htmlFor='picture' className='block text-gray-600'>
                             Class Image
                         </label>
-                        <input type="file" className="file-input file-input-bordered file-input-error rounded-none w-full" />
+                        <input type="file" className="file-input file-input-bordered file-input-error rounded-none w-full" name='image' />
                     </div>
                     <div className='flex justify-between gap-2'>
                         <div className='space-y-1 w-full text-sm'>
@@ -41,8 +41,8 @@ const AddClassForm = ({ handleSubmit, loading }) => {
                                 name='name'
                                 id='user'
                                 type='text'
-                                placeholder={user.displayName}
-                                value={user.displayName}
+                                placeholder={user?.displayName}
+                                value={user?.displayName}
                                 readOnly
                             />
                         </div>
@@ -55,8 +55,8 @@ const AddClassForm = ({ handleSubmit, loading }) => {
                                 name='email'
                                 id='email'
                                 type='text'
-                                value={user.email}
-                                placeholder={user.email}
+                                value={user?.email}
+                                placeholder={user?.email}
                                 readOnly
                             />
                         </div>
@@ -81,8 +81,8 @@ const AddClassForm = ({ handleSubmit, loading }) => {
                             </label>
                             <input
                                 className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500'
-                                name='seats'
-                                id='seats'
+                                name='total_seats'
+                                id='total_seats'
                                 type='number'
                                 placeholder='10'
                                 required

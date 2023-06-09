@@ -11,6 +11,9 @@ import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import UpdateProfile from "../pages/Dashboard/UpdateProfile/UpdateProfile";
 import SelectedClass from "../pages/Dashboard/SelectedClass/SelectedClass";
 import EnrolledClass from "../pages/Dashboard/EnrolledClass/EnrolledClass";
+import Payment from "../pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
+import ClassList from "../pages/Dashboard/ClassList/ClassList";
 
 
 const router = createBrowserRouter([
@@ -53,6 +56,14 @@ const router = createBrowserRouter([
                 element: <UpdateProfile></UpdateProfile>
             },
             {
+                path: '/dashboard/make-payment',
+                element: <Payment></Payment>
+            },
+            {
+                path: '/dashboard/payment-history',
+                element: <PaymentHistory></PaymentHistory>
+            },
+            {
                 path: '/dashboard/my-selected-classes',
                 element: <SelectedClass></SelectedClass>
             },
@@ -61,11 +72,20 @@ const router = createBrowserRouter([
                 element: <EnrolledClass></EnrolledClass>
             },
             {
-                path: '/dashboard/profile',
-                element: <UpdateProfile></UpdateProfile>
+                path: '/dashboard/add-new-class',
+                element: <AddClass></AddClass>
             },
             {
-                path: '/dashboard/add-new-class',
+                path: '/dashboard/my-classes',
+                element: <ClassList></ClassList>,
+                loader: () => fetch('http://localhost:5000/classes')
+            },
+            {
+                path: '/dashboard/manage-classes',
+                element: <AddClass></AddClass>
+            },
+            {
+                path: '/dashboard/manage-users',
                 element: <AddClass></AddClass>
             },
         ]
