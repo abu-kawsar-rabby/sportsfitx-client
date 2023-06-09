@@ -1,5 +1,5 @@
 import { toast } from 'react-hot-toast';
-import SocialLogin from '../../components/SocialLogin';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 import './Login.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
@@ -20,7 +20,7 @@ const Login = () => {
             .then(result => {
                 console.log(result)
                 toast.success('login successful')
-                navigate('/')
+                navigate('/dashboard')
             })
             .catch(error => {
                 console.log(error.message)

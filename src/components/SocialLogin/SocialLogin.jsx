@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
-import { AuthContext } from '../providers/AuthProviders';
+import { AuthContext } from '../../providers/AuthProviders';
 const SocialLogin = () => {
-    const { signInWithGoogle } = useContext(AuthContext);
+    const { googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleGoogleLogin = () => {
-        signInWithGoogle()
+        googleSignIn()
             .then(result => {
                 console.log(result)
                 toast.success('google login successful')

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import SocialLogin from '../../components/SocialLogin';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../providers/AuthProviders';
 
