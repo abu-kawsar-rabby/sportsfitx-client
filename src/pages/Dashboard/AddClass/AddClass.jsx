@@ -45,6 +45,7 @@ const AddClass = () => {
                         image: user?.photoURL,
                         email: user?.email,
                     },
+                    status: 'pending',
                     category,
                 }
 

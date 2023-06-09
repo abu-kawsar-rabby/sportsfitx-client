@@ -17,6 +17,7 @@ const Button = ({ label, onClick, disabled, outline, small, icon: Icon }) => {
                 hover:mb-[1px]
                 duration-300
                 transition
+                ease-linear
                 ${outline ? 'bg-white' : 'bg-gradient-to-r from-red-400 via-red-500 to-red-600'}
                 ${outline ? 'border-black' : 'border-rose-500'}
                 ${outline ? 'text-black' : 'text-white'}

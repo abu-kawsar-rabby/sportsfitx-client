@@ -8,6 +8,9 @@ import Home from "../pages/Home/Home/Home";
 import DashboardLayout from "../layout/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
+import UpdateProfile from "../pages/Dashboard/UpdateProfile/UpdateProfile";
+import SelectedClass from "../pages/Dashboard/SelectedClass/SelectedClass";
+import EnrolledClass from "../pages/Dashboard/EnrolledClass/EnrolledClass";
 
 
 const router = createBrowserRouter([
@@ -44,6 +47,22 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <Dashboard></Dashboard>
+            },
+            {
+                path: '/dashboard/profile',
+                element: <UpdateProfile></UpdateProfile>
+            },
+            {
+                path: '/dashboard/my-selected-classes',
+                element: <SelectedClass></SelectedClass>
+            },
+            {
+                path: '/dashboard/my-enrolled-classes',
+                element: <EnrolledClass></EnrolledClass>
+            },
+            {
+                path: '/dashboard/profile',
+                element: <UpdateProfile></UpdateProfile>
             },
             {
                 path: '/dashboard/add-new-class',

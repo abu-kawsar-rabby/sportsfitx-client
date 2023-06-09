@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import { TbFidgetSpinner } from 'react-icons/tb'
-const AddClassForm = ({ handleSubmit, loading }
-) => {
+import { AuthContext } from '../../providers/AuthProviders';
+const AddClassForm = ({ handleSubmit, loading }) => {
+    const { user } = useContext(AuthContext)
     return (
         <div className='w-3/4 mx-auto min-h-[calc(100vh-40px)] text-gray-800 rounded-xl bg-gray-50'>
             <form
@@ -21,32 +23,43 @@ const AddClassForm = ({ handleSubmit, loading }
                             required
                         />
                     </div>
-
-                    <div className='space-y-1 text-sm'>
-                        <label htmlFor='category' className='block text-gray-600'>
-                            Category
-                        </label>
-                        <select
-                            required
-                            className='w-full px-4 py-3 border-rose-300 focus:outline-rose-500 '
-                            name='category'
-                        >
-                            {/* {categories?.map(category => (
-                                    <option value={category.label} key={category.label}>
-                                        {category.label}
-                                    </option>
-                                ))} */}
-                            <option>cricket</option>
-                            <option>football</option>
-                        </select>
-                    </div>
                 </div>
                 <div className='space-y-6'>
                     <div className='space-y-6'>
                         <label htmlFor='picture' className='block text-gray-600'>
-                            Picture Upload
+                            Class Image
                         </label>
-                        <input type="file" className="file-input file-input-bordered file-input-secondary rounded-none w-full" />
+                        <input type="file" className="file-input file-input-bordered file-input-error rounded-none w-full" />
+                    </div>
+                    <div className='flex justify-between gap-2'>
+                        <div className='space-y-1 w-full text-sm'>
+                            <label htmlFor='price' className='block text-gray-600'>
+                                Instructor Name
+                            </label>
+                            <input
+                                className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500  '
+                                name='name'
+                                id='user'
+                                type='text'
+                                placeholder={user.displayName}
+                                value={user.displayName}
+                                readOnly
+                            />
+                        </div>
+                        <div className='space-y-1 w-full text-sm'>
+                            <label htmlFor='email' className='block text-gray-600'>
+                                Instructor email
+                            </label>
+                            <input
+                                className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500'
+                                name='email'
+                                id='email'
+                                type='text'
+                                value={user.email}
+                                placeholder={user.email}
+                                readOnly
+                            />
+                        </div>
                     </div>
                     <div className='flex justify-between gap-2'>
                         <div className='space-y-1 w-full text-sm'>
@@ -100,13 +113,14 @@ const AddClassForm = ({ handleSubmit, loading }
                     py-4
                     text-xl
                     bg-gradient-to-r from-red-400 via-red-500 to-red-600
-                    duration-300
-                    transition'
+                    transition
+                    ease-linear
+                    duration-200'
                 >
                     {loading ? (
                         <TbFidgetSpinner className='m-auto animate-spin' size={24} />
                     ) : (
-                        'Save & Continue'
+                        'Add Class'
                     )}
                 </button>
             </form>
