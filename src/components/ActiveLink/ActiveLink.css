@@ -1,0 +1,12 @@
+.active {
+    color: red;
+    /* border-bottom: 2px solid red; */
+}
+
+
+.red:hover {
+    color: red;
+    border-color: red;
+    transition: ease-in-out;
+    padding: auto;
+}
