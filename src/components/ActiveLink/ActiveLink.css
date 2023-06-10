@@ -1,15 +1,9 @@
 .active {
     color: red;
-    /* border-bottom: 1px solid red; */
-    /* font-size: 1.125rem;
-    line-height: 1.75rem; */
 }
 
 
 .red:hover {
     color: red;
-    /* border-bottom: 1px solid red; */
-    /* font-size: 1.125rem;
-    line-height: 1.75rem; */
     transition: ease-in-out;
 }
