@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
-import AddClassForm from "../../../components/AddClassForm/AddClassForm";
-import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import AddClassForm from "../../../components/Form/AddClassForm";
 import { AuthContext } from "../../../providers/AuthProviders";
 import { useNavigate } from "react-router-dom";
 import { imageUploader } from "../../../api/imageUploader";
@@ -61,16 +60,12 @@ const AddClass = () => {
 
 
     return (
-        <div>
-            <SectionTitle
-                heading={"Add New Class"}
-                subHeading={'this is the section for you where you can add a new class'}
-            ></SectionTitle>
+        <>
             <AddClassForm
                 handleSubmit={handleSubmit}
                 loading={loading}
             />
-        </div>
+        </>
     );
 };
 

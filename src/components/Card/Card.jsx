@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import Button from "../Button/Button";
 
 const Card = ({ img, title, instructor, seats, price }) => {
     return (
@@ -12,7 +11,7 @@ const Card = ({ img, title, instructor, seats, price }) => {
                     <p>Available Seats: {seats}</p>
                     <p>Price: ${price}</p>
                     <div className="card-actions">
-                        <Button label="Enrolled Now"></Button>
+                        <button className='btn-sportsfitx'>Enrolled Now</button>
                     </div>
                 </div>
             </div>

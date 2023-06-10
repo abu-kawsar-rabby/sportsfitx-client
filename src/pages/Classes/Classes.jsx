@@ -16,7 +16,7 @@ const Classes = () => {
                 heading={'All classes'}
                 subHeading={'this is the section where get we actually our classes'}
             ></SectionTitle>
-            <div className="grid grid-cols-4 gap-5">
+            <div className="grid md:grid-cols-4 gap-5">
                 {
                     carditem.map((item, index) =>
                         <Card

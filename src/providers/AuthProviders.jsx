@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
+import axios from 'axios';
 
 
 export const AuthContext = createContext(null);
@@ -10,9 +11,21 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [role, setRole] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [menuloading, setMenuloading] = useState(true);
 
     const googleProvider = new GoogleAuthProvider();
+
+    useEffect(() => {
+        if (user) {
+            axios.get(`${import.meta.env.VITE_API_URL}/users/${user.email}`)
+                .then(res => {
+                    setRole(res.data.role)
+                    setMenuloading(false);
+                })
+        }
+    }, [user])
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -68,6 +81,8 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         loading,
+        menuloading,
+        role,
         createUser,
         signIn,
         googleSignIn,

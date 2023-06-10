@@ -4,9 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../providers/AuthProviders';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Registration = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [axiosSecure] = useAxiosSecure();
 
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -19,9 +21,18 @@ const Registration = () => {
                 updateUserProfile(name, imageURL)
                     .then(() => {
                         const user = result?.user;
-                        console.log(user)
-                        toast.success('registration successful')
-                        navigate('/')
+                        const newUser = { name: user.displayName, email: user.email, image: user.photoURL, role: 'student' }
+                        axiosSecure.post(`/users`, newUser)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    toast.success('registration successful')
+                                    navigate('/')
+                                }
+                            })
+                            .catch(error => {
+                                toast.error(error.message)
+                                console.log(error.message)
+                            })
                     })
                     .catch(error => {
                         console.log(error.message)
@@ -66,13 +77,13 @@ const Registration = () => {
 
                     </div>
                     <div className='my-5'>
-                        <input className='w-full btn btn-warning text-white hover:bg-yellow-600' type="submit" value="Register" />
+                        <input className='w-full btn-sportsfitx text-base font-semibold' type="submit" value="Register" />
                     </div>
                 </form>
-                <div className="divider divide-white text-white">OR</div>
+                <div className="divider divide-white text-white text-lg font-bold">OR</div>
                 <div className=''>
                     <SocialLogin></SocialLogin>
-                    <h3 className='text-white text-sm'>Already have any account? <Link to='/login'>Please Login</Link></h3>
+                    <h3 className='text-white text-sm'>Already have any account? <Link to='/login' className='font-semibold'>Please Login</Link></h3>
                 </div>
             </div>
         </div>

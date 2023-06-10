@@ -1,4 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
 
+body {
+    font-family: 'Barlow', sans-serif;
+}
+
+.btn-sportsfitx {
+    color: #fff;
+    border-radius: 4px;
+    padding: 1rem;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    background: linear-gradient(to bottom right, #f87171, #dc2626, #b91c1c);
+    --tw-gradient-stops: #f87171;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.2s;
+}
+
+.btn-sportsfitx:hover {
+    cursor: pointer;
+    background: linear-gradient(to bottom left, #f56565, #dc2626, #9b1c1c);
+}
+
+.btn-sportsfitx[disabled] {
+    pointer-events: none;
+    opacity: 0.7;
+}

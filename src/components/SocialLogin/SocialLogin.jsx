@@ -3,21 +3,35 @@ import { FcGoogle } from 'react-icons/fc';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../providers/AuthProviders';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 const SocialLogin = () => {
     const { googleSignIn } = useContext(AuthContext);
+    const [axiosSecure] = useAxiosSecure();
     const navigate = useNavigate();
     const handleGoogleLogin = () => {
         googleSignIn()
             .then(result => {
-                console.log(result)
-                toast.success('google login successful')
-                navigate('/')
+                const user = result.user;
+                const newUser = { name: user.displayName, email: user.email, image: user.photoURL, role: 'student' }
+                axiosSecure.post(`/users`, newUser)
+                    .then(() => {
+                        toast.success('Google login successful')
+                        navigate('/')
+                    })
+                    .catch(error => {
+                        toast.error(error.message)
+                        console.log(error.message);
+                    })
             })
             .catch(error => console.log(error.message));
     }
     return (
-        <div className='my-5'>
-            <button onClick={handleGoogleLogin} className='w-full btn btn-warning text-white hover:bg-yellow-600'><FcGoogle className='mr-2' size={28}></FcGoogle> Sign up with Google</button>
+        <div className='my-5 flex'>
+            <button
+                onClick={handleGoogleLogin}
+                className='w-full btn-sportsfitx flex items-center justify-center gap-2 text-base font-semibold'>
+                <FcGoogle size={28}></FcGoogle>Sign up with Google
+            </button>
         </div>
     );
 };

@@ -46,7 +46,7 @@ const UpdateProfile = () => {
     }
 
     return (
-        <div className="hero mt-0 h-screen">
+        <div className="hero">
             <SectionTitle heading='Profile'></SectionTitle>
             <div className="hero-content flex-col md:w-1/2">
 
@@ -75,7 +75,7 @@ const UpdateProfile = () => {
                             <input type="email" name='email' placeholder="email" readOnly defaultValue={user?.email} className="input input-bordered" />
                         </div>
                         <div className="form-control mt-3">
-                            <button className="btn btn-secondary text-white">Update</button>
+                            <button className="btn-sportsfitx text-white">Update</button>
                         </div>
                     </form>
                 </div>

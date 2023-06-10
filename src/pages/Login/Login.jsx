@@ -7,7 +7,6 @@ import { AuthContext } from '../../providers/AuthProviders';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
-    console.log(signIn);
     const navigate = useNavigate();
 
     const handleLogin = event => {
@@ -42,14 +41,14 @@ const Login = () => {
                         <Link className='text-sm text-white'>Forgot password?</Link>
                     </div>
                     <div className='my-5'>
-                        <input className='w-full btn btn-warning text-white hover:bg-yellow-600' type="submit" value="Login" />
+                        <input className='w-full btn-sportsfitx text-base font-semibold' type="submit" value="Login" />
                     </div>
 
                 </form>
-                <div className="divider divide-white text-white">OR</div>
+                <div className="divider divide-white text-white text-lg font-bold">OR</div>
                 <div>
                     <SocialLogin></SocialLogin>
-                    <h3 className='text-white font-semibold text-sm '>Don&apos;t have any account? <Link to='/register'>Please Register</Link></h3>
+                    <h3 className='text-white text-sm '>Don&apos;t have any account?  <Link to='/register' className='font-semibold'>Please Register</Link></h3>
                 </div>
             </div>
         </div>

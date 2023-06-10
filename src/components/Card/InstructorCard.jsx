@@ -16,17 +16,7 @@ const InstructorCard = ({ _id, img, name, email, total_class, class_names }) => 
                         <Link to={`/instructor/${_id}`}>
                             <button
                                 type='submit'
-                                className='
-                    w-full
-                    text-white
-                    my-5
-                    px-6
-                    py-4
-                    text-xl
-                    bg-gradient-to-r from-red-400 via-red-500 to-red-600
-                    transition
-                    ease-linear
-                    duration-200'
+                                className='btn-sportsfitx'
                             >See classes!</button>
                         </Link>
                     </div>

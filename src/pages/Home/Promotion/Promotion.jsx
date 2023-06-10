@@ -1,4 +1,3 @@
-import Button from "../../../components/Button/Button";
 import Container from "../../shared/Container/Container";
 import './Promotion.css';
 
@@ -14,7 +13,7 @@ const Promotion = () => {
                 <div className='w-1/2 space-y-5'>
                     <p className='uppercase text-5xl font-bold'>JOIN US NOW & GET FREE TRAINING!</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.</p>
-                    <Button label="Join us"></Button>
+                    <button className="btn-sportsfitx">Join us</button>
                 </div>
             </Container>
         </div>
