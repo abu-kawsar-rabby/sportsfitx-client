@@ -6,7 +6,7 @@ const Card = ({ img, title, instructor, seats, price }) => {
             <div className="card card-compact bg-base-100 shadow-xl group rounded-none">
                 <figure><img src={img} alt="Shoes" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">Name {title}</h2>
+                    <h2 className="card-title">{title}</h2>
                     <p>instructor Name: {instructor}</p>
                     <p>Available Seats: {seats}</p>
                     <p>Price: ${price}</p>
