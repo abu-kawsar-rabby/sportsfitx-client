@@ -28,7 +28,7 @@ const Navbar = () => {
                                 {navItems}
                             </ul>
                         </div>
-                        <Link className="btn btn-ghost normal-case text-5xl text-white">SportsFitX</Link>
+                        <Link className="btn btn-ghost normal-case text-4xl text-white">SportsFitX</Link>
                     </div>
                     <div className="navbar-end">
                         <div className="hidden lg:flex">

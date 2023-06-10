@@ -5,7 +5,7 @@ const SidebarHeader = ({ user }) => {
     return (
         <div>
             <div className='w-full hidden md:flex py-2 justify-center items-center mx-auto'>
-                <Link to={'/'}><h1 className='text-5xl font-bold'>SportFitX</h1></Link>
+                <Link to={'/'}><h1 className='text-4xl font-bold'>SportFitX</h1></Link>
             </div>
             <div className='md:hidden flex flex-col items-center mt-6 -mx-2'>
                 <Link to='/dashboard'>
