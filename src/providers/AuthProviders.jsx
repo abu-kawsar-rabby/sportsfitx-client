@@ -22,6 +22,7 @@ const AuthProvider = ({ children }) => {
                     setRole(res.data.role)
                 })
         }
+        setRole(null)
     }, [user])
 
     const createUser = (email, password) => {
