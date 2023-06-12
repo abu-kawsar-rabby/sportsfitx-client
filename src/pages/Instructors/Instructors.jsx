@@ -12,7 +12,7 @@ const Instructors = () => {
                 heading={'Instructors'}
                 subHeading={'this is the section where get we actually our Instructors'}
             ></SectionTitle>
-            <div className="grid md:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-3 gap-5 my-10">
                 {
                     instructors?.map(instructor =>
                         <InstructorCard

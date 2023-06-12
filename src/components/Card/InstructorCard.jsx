@@ -7,12 +7,11 @@ const InstructorCard = ({ instructor }) => {
         <div className="md:hover:-mt-4 ease-linear duration-200">
             <div className="card w-96 glass">
                 <figure><img src={image}
-                    alt="car!" /></figure>
+                    className='w-screen h-[45vh]'
+                    alt="" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
                     <p>Email: {email}</p>
-                    {/* <p>total class: {total_class}</p>
-                    <p>classlist: {class_names}</p> */}
                     <div className="card-actions">
                         <Link>
                             <button

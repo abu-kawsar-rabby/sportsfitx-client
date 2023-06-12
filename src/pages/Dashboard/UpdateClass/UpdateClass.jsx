@@ -45,7 +45,7 @@ const UpdateClass = () => {
                 }
 
                 // put class data to server
-                axiosSecure.put(`/classes/${id}`, classData)
+                axiosSecure.patch(`/my-classes/${id}`, classData)
                     .then(data => {
                         console.log(data)
                         setLoading(false)

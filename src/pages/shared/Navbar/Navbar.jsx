@@ -41,7 +41,7 @@ const Navbar = () => {
                                 ? <div className="flex justify-center items-center gap-3">
                                     <Link to={'/dashboard/profile'} className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 border-2 border-white rounded-full">
-                                            <img src={user?.photoURL} />
+                                            <img referrerPolicy='no-referrer' src={user?.photoURL} />
                                         </div>
                                     </Link>
                                     <button

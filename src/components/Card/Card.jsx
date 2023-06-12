@@ -49,7 +49,7 @@ const Card = ({ classItem, refetch }) => {
     return (
         <div>
             <div className={`card h-96 card-compact bg-base-100 shadow-xl group rounded ${total_seats <= 0 && 'bg-red-300'}`}>
-                <figure><img src={image} alt={className} /></figure>
+                <figure><img src={image} className="w-screen h-[35vh]" alt={className} /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{className}</h2>
                     <p>instructor Name: {instructor?.name}</p>

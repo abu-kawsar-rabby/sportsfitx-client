@@ -28,10 +28,11 @@ const Banner = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                <SwiperSlide><img src="https://i.ibb.co/0sZn1VS/banner1.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://i.ibb.co/R296ZVQ/bannner3.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://i.ibb.co/R296ZVQ/bannner3.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://i.ibb.co/svghKqd/banner4.jpg" alt="" /></SwiperSlide>
+                {/* <SwiperSlide><img src="https://i.ibb.co/gw2V2Hv/banner2.jpg" alt="" /></SwiperSlide> */}
+                <SwiperSlide><img src="https://i.ibb.co/9hSkqQ2/8955697.jpg" alt="" /></SwiperSlide>
+                <SwiperSlide><img src="https://i.ibb.co/tDQqymS/8955302.jpg" alt="" /></SwiperSlide>
+                {/* <SwiperSlide><img src="https://i.ibb.co/X3m9qPQ/9393.jpg" alt="" /></SwiperSlide> */}
+                <SwiperSlide><img src="https://i.ibb.co/BnQyQ9t/7438290-32611.jpg" alt="" /></SwiperSlide>
             </Swiper>
         </Container>
     );

@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import useClass from "../../../hooks/useClass";
+import Loader from "../../../components/Loader/Loader";
 
 const ClassList = () => {
-    const [, classes] = useClass([]);
+    const [, classes, isLoading] = useClass();
+    
+    if (isLoading) {
+        return <Loader></Loader>
+    }
 
     return (
         <div>

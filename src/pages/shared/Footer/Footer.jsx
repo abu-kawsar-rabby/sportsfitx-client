@@ -9,7 +9,7 @@ const Footer = () => {
                 <footer className="footer p-10">
                     <div>
                         <p className="text-3xl font-bold">SportsFitX</p>
-                        <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+                        <p>Providing reliable training since 2020</p>
                     </div>
                     <div>
                         <span className="footer-title">Services</span>
@@ -34,7 +34,7 @@ const Footer = () => {
                 </footer>
                 <footer className="footer items-center p-4">
                     <div className="items-center grid-flow-col">
-                        <p>Badminton School & Sports Club Template Kit by Jegtheme</p>
+                        <p>Sports academy Template by Abu Kawsar </p>
                     </div>
                     <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
                         <p>Copyright © {moment().format('YYYY')} - All right reserved</p>

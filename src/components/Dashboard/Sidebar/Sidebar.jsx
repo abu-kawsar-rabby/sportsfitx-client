@@ -6,14 +6,10 @@ import SidebarMenu from '../SidebarMenu/SidebarMenu'
 
 const Sidebar = () => {
     const navigate = useNavigate()
-    // const [toggle, setToggle] = useState(false)
-    const { user, menuloading, logOut, role } = useContext(AuthContext)
+    const { user, logOut, role } = useContext(AuthContext)
 
     const [isActive, setActive] = useState('false')
-    // const toggleHandler = event => {
-    //     setToggle(event.target.checked)
-    // }
-
+   
     // Sidebar Responsive Handler
     const handleToggle = () => {
         setActive(!isActive)
@@ -33,9 +29,6 @@ const Sidebar = () => {
                 isActive={isActive}
                 role={role}
                 user={user}
-                menuloading={menuloading}
-            // toggleHandler={toggleHandler}
-            // toggle={toggle}
             ></SidebarMenu>
         </>
     )
