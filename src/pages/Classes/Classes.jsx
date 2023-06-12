@@ -5,7 +5,7 @@ import Container from "../shared/Container/Container";
 
 
 const Classes = () => {
-    const [, classes] = useClasses();
+    const [refetch, classes] = useClasses();
     return (
         <Container>
             <SectionTitle
@@ -14,10 +14,11 @@ const Classes = () => {
             ></SectionTitle>
             <div className="grid md:grid-cols-4 gap-5">
                 {
-                    classes?.map((classItem, index) =>
+                    classes?.map(classItem =>
                         <Card
-                            key={index}
+                            key={classItem._id}
                             classItem={classItem}
+                            refetch={refetch}
                         ></Card>
                     )
                 }
