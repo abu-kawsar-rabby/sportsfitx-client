@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 
 const Card = ({ classItem, handleSelectClass }) => {
     const { image, className, instructor, total_seats, price } = classItem;
@@ -18,11 +17,6 @@ const Card = ({ classItem, handleSelectClass }) => {
             </div>
         </div>
     );
-};
-
-Card.propTypes = {
-    classItem: PropTypes.any,
-    handleSelectClass: PropTypes.any
 };
 
 export default Card;

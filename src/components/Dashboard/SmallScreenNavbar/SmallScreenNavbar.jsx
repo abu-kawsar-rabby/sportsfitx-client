@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { AiOutlineBars } from "react-icons/ai";
 
 const SmallScreenNavbar = ({ handleToggle }) => {
@@ -18,9 +17,6 @@ const SmallScreenNavbar = ({ handleToggle }) => {
             </button>
         </div>
     );
-};
-SmallScreenNavbar.propTypes = {
-    handleToggle: PropTypes.any
 };
 
 export default SmallScreenNavbar;

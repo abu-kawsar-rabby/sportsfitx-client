@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import useClass from "../../../hooks/useClass";
 
 const ClassList = () => {
-    const [, classes] = useClass();
+    const [, classes] = useClass([]);
 
     return (
         <div>
@@ -22,7 +22,7 @@ const ClassList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {classes.map((classItem, index) => (
+                        {classes?.map((classItem, index) => (
                             <tr key={index}>
                                 <th>{index + 1}</th>
                                 <td>{classItem.className}</td>

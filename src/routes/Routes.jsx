@@ -18,12 +18,16 @@ import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import PrivateRoute from "./PrivateRoutes";
 import UpdateClass from "../pages/Dashboard/UpdateClass/UpdateClass";
+import InstructorRoute from "./InstructorRoutes";
+import AdminRoute from "./AdminRoutes";
+import ErrorPage from "../pages/shared/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -77,23 +81,23 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/add-new-class',
-                element: <AddClass></AddClass>
+                element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
             },
             {
                 path: '/dashboard/my-classes',
-                element: <ClassList></ClassList>
+                element: <InstructorRoute><ClassList></ClassList></InstructorRoute>
             },
             {
                 path: '/dashboard/update-class/:id',
-                element: <UpdateClass></UpdateClass>
+                element: <InstructorRoute><UpdateClass></UpdateClass></InstructorRoute>
             },
             {
                 path: '/dashboard/manage-classes',
-                element: <ManageClasses></ManageClasses>
+                element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
             {
                 path: '/dashboard/manage-users',
-                element: <ManageUsers></ManageUsers>
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             },
         ]
     },

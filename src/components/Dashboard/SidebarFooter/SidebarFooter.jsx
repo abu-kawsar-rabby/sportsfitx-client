@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { FcSettings } from 'react-icons/fc';
 import { GrLogout } from 'react-icons/gr';
 import { NavLink } from 'react-router-dom';
@@ -28,10 +27,6 @@ const SidebarFooter = ({ handleLogOut }) => {
             </button>
         </div>
     );
-};
-
-SidebarFooter.propTypes = {
-    handleLogOut: PropTypes.any
 };
 
 export default SidebarFooter;

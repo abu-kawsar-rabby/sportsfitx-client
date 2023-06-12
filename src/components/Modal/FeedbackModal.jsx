@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 
 const FeedbackModal = ({ modalRef, classItem, handleFeedback, closeModal }) => {
     return (
@@ -28,13 +26,6 @@ const FeedbackModal = ({ modalRef, classItem, handleFeedback, closeModal }) => {
             </div>
         </dialog>
     );
-};
-
-FeedbackModal.propTypes = {
-    modalRef: PropTypes.any,
-    classItem: PropTypes.any,
-    handleFeedback: PropTypes.any,
-    closeModal: PropTypes.any
 };
 
 export default FeedbackModal;

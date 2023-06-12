@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 
 const SectionTitle = ({ heading, subHeading }) => {
     return (
@@ -7,11 +6,6 @@ const SectionTitle = ({ heading, subHeading }) => {
             <h3>{subHeading}</h3>
         </div>
     );
-};
-
-SectionTitle.propTypes = {
-    heading: PropTypes.any,
-    subHeading: PropTypes.any,
 };
 
 export default SectionTitle;

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { AuthContext } from '../../providers/AuthProviders';
@@ -107,11 +106,5 @@ const AddClassForm = ({ classItem, handleSubmit, loading }) => {
         </div>
     )
 }
-
-AddClassForm.propTypes = {
-    classItem: PropTypes.any,
-    handleSubmit: PropTypes.any,
-    loading: PropTypes.any,
-};
 
 export default AddClassForm;

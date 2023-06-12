@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Navigate, useLocation } from 'react-router'
 import { useContext } from 'react'
 import { AuthContext } from '../providers/AuthProviders'
@@ -18,7 +17,4 @@ const PrivateRoute = ({ children }) => {
     return <Navigate to='/login' state={{ from: location }} replace></Navigate>
 }
 
-PrivateRoute.propTypes = {
-    children: PropTypes.any,
-};
 export default PrivateRoute

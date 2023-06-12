@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
@@ -135,7 +134,5 @@ const CheckoutForm = ({ classItem }) => {
         </div>
     );
 };
-CheckoutForm.propTypes = {
-    classItem: PropTypes.any
-};
+
 export default CheckoutForm;

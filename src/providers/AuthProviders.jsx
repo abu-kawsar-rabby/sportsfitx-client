@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
@@ -67,8 +66,8 @@ const AuthProvider = ({ children }) => {
             }
             else {
                 localStorage.removeItem('access-token')
-                setLoading(false);
             }
+            setLoading(false);
 
 
         });
@@ -93,10 +92,6 @@ const AuthProvider = ({ children }) => {
             {children}
         </AuthContext.Provider>
     );
-};
-
-AuthProvider.propTypes = {
-    children: PropTypes.node.isRequired
 };
 
 export default AuthProvider;

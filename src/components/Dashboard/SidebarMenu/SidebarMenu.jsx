@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import SidebarFooter from "../SidebarFooter/SidebarFooter";
 import SidebarHeader from "../SidebarHeader/SidebarHeader";
 import AdminMenu from '../Menu/AdminMenu';
@@ -36,15 +35,6 @@ const SidebarMenu = ({ handleLogOut, isActive, role, user }) => {
 
         </div>
     );
-};
-
-SidebarMenu.propTypes = {
-    handleLogOut: PropTypes.any,
-    isActive: PropTypes.any,
-    role: PropTypes.any,
-    user: PropTypes.any,
-    toggleHandler: PropTypes.any,
-    toggle: PropTypes.any,
 };
 
 export default SidebarMenu;

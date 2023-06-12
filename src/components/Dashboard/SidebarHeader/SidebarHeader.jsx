@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const SidebarHeader = ({ user }) => {
@@ -29,10 +28,6 @@ const SidebarHeader = ({ user }) => {
             </div>
         </div>
     );
-};
-
-SidebarHeader.propTypes = {
-    user: PropTypes.any,
 };
 
 export default SidebarHeader;

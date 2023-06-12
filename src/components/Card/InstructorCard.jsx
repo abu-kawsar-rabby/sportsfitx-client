@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const InstructorCard = ({ user }) => {
@@ -26,10 +25,6 @@ const InstructorCard = ({ user }) => {
             </div>
         </div>
     );
-};
-
-InstructorCard.propTypes = {
-    user: PropTypes.any
 };
 
 export default InstructorCard;
