@@ -8,7 +8,7 @@ const useManageUsers = () => {
         queryKey: ['manage-users'],
         queryFn: async () => {
             const res = await axiosSecure(`/manage-users`)
-            console.log('res from axios', res.data)
+           
             return res.data;
         },
     })

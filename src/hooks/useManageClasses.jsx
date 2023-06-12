@@ -8,7 +8,7 @@ const useManageClasses = () => {
         queryKey: ['manage-classes'],
         queryFn: async () => {
             const res = await axiosSecure(`/manage-classes`)
-            console.log('res from axios', res.data)
+           
             return res.data;
         },
     })

@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
-import { MdHomeWork, MdOutlineManageHistory } from 'react-icons/md'
+import { GiNotebook } from 'react-icons/gi'
+import { GrUserManager } from 'react-icons/gr'
 const AdminMenu = () => {
     return (
         <>
@@ -10,7 +11,7 @@ const AdminMenu = () => {
                     }`
                 }
             >
-                <MdHomeWork className='w-5 h-5' />
+                <GiNotebook className='w-5 h-5' />
 
                 <span className='mx-4 font-medium'>Manage Classes</span>
             </NavLink>
@@ -21,7 +22,7 @@ const AdminMenu = () => {
                     }`
                 }
             >
-                <MdOutlineManageHistory className='w-5 h-5' />
+                <GrUserManager className='w-5 h-5' />
 
                 <span className='mx-4 font-medium'>Manage Users</span>
             </NavLink>

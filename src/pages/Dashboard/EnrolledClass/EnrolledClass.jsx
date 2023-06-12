@@ -1,7 +1,9 @@
-import useClasses from '../../../hooks/useClasses';
+import usePayments from "../../../hooks/usePayments";
+import EnrolledTableRow from "./EnrolledTableRow";
 
 const EnrolledClass = () => {
-    const [, classes] = useClasses();
+    const [, payments] = usePayments();
+
     return (
         <div>
             <div className="overflow-x-auto">
@@ -18,28 +20,13 @@ const EnrolledClass = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {classes.map((classItem, index) => (
-                            <tr key={index}>
-                                <th>{index + 1}</th>
-                                <td>
-                                    <div className="avatar">
-                                        <div className="mask mask-squircle w-12 h-12">
-                                            <img src={classItem?.image} alt="Avatar" />
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="font-bold">{classItem?.className}</div>
-                                </td>
-                                <td>
-                                    <div className="text-xs font-semibold">{classItem?.instructor?.name}</div>
-                                    <div className="text-xs opacity-80">{classItem?.instructor?.email}</div>
-                                </td>
-                                <td>{classItem.price}</td>
-                                <td>
-                                    <p className="font-bold">{classItem.date}</p>
-                                </td>
-                            </tr>
+                        {payments?.map((payment, index) => (
+                            <EnrolledTableRow
+                                key={payment._id}
+                                index={index}
+                                classId={payment.classId}
+                                date={payment.date}
+                            ></EnrolledTableRow>
                         ))}
                     </tbody>
                 </table>

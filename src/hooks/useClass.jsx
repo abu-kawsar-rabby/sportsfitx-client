@@ -8,11 +8,11 @@ const useClass = () => {
     const { loading, user } = useContext(AuthContext);
 
     const { refetch, data: classes = [] } = useQuery({
-        queryKey: ['my-classes'],
+        queryKey: ['my-classes', user],
         enabled: !loading,
         queryFn: async () => {
             const res = await axiosSecure(`/my-classes?email=${user.email}`)
-            console.log('res from axios', res.data)
+           
             return res.data;
         },
     })

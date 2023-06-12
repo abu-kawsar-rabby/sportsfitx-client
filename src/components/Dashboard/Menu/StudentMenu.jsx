@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom'
-import { BsFillHouseAddFill, BsFingerprint } from 'react-icons/bs'
+import { BiBookAdd } from 'react-icons/bi'
+import { BiSelectMultiple } from 'react-icons/bi'
+import { TfiWallet } from 'react-icons/tfi'
 
 const StudentMenu = () => {
     return (
@@ -11,7 +13,7 @@ const StudentMenu = () => {
                     }`
                 }
             >
-                <BsFingerprint className='w-5 h-5' />
+                <BiBookAdd className='w-5 h-5' />
                 <span className='mx-4 font-medium'>My Selected Class</span>
             </NavLink>
             <NavLink
@@ -21,7 +23,7 @@ const StudentMenu = () => {
                     }`
                 }
             >
-                <BsFingerprint className='w-5 h-5' />
+                <BiSelectMultiple className='w-5 h-5' />
                 <span className='mx-4 font-medium'>My Enrolled Class</span>
             </NavLink>
             <NavLink
@@ -31,7 +33,7 @@ const StudentMenu = () => {
                     }`
                 }
             >
-                <BsFillHouseAddFill className='w-5 h-5' />
+                <TfiWallet className='w-5 h-5' />
 
                 <span className='mx-4 font-medium'>Payment History</span>
             </NavLink>

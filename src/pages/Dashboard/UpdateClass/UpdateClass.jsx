@@ -17,10 +17,9 @@ const UpdateClass = () => {
     const [axiosSecure] = useAxiosSecure();
 
     const { data: classItem = [] } = useQuery({
-        queryKey: ['my-classes'],
+        queryKey: ['my-classes', user],
         queryFn: async () => {
             const res = await axiosSecure(`/classes/${id}`)
-            console.log('res from axios', res.data)
             return res.data;
         },
     })
@@ -43,12 +42,6 @@ const UpdateClass = () => {
                     price: parseFloat(price),
                     total_seats: parseInt(total_seats),
                     image: data.data.display_url,
-                    status: 'pending',
-                    instructor: {
-                        name: user?.displayName,
-                        image: user?.photoURL,
-                        email: user?.email,
-                    },
                 }
 
                 // put class data to server

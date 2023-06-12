@@ -8,7 +8,7 @@ const usePopularInstructors = () => {
         queryKey: ['popular-instructor'],
         queryFn: async () => {
             const res = await axiosSecure(`/instructor`)
-            console.log('res from axios', res.data)
+           
             return res.data;
         },
     })

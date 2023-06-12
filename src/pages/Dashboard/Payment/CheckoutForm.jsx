@@ -6,6 +6,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { ImSpinner9 } from 'react-icons/im'
 import { AuthContext } from '../../../providers/AuthProviders';
 import useClasses from '../../../hooks/useClasses';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutForm = ({ classItem }) => {
 
@@ -18,6 +19,7 @@ const CheckoutForm = ({ classItem }) => {
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transectionId, setTransectionId] = useState('');
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -91,7 +93,8 @@ const CheckoutForm = ({ classItem }) => {
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     if (res.data.insertResult.insertedId) {
-                        Swal.fire('hi payment donnnnnnnnnnnnee')
+                        Swal.fire('payment succesfull')
+                        navigate('/dashboard/my-enrolled-classes')
                         refetch()
                     }
                 })

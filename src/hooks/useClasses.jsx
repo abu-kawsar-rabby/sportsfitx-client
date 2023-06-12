@@ -8,7 +8,7 @@ const useClasses = () => {
         queryKey: ['classes'],
         queryFn: async () => {
             const res = await axiosSecure(`/classes`)
-            console.log('res from axios', res.data)
+           
             return res.data;
         },
     })

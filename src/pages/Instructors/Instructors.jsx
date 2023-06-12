@@ -1,11 +1,11 @@
 import InstructorCard from "../../components/Card/InstructorCard";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import useUsers from "../../hooks/useUsers";
+import usePopularInstructors from "../../hooks/useInstructors";
 import Container from "../shared/Container/Container";
 
 
 const Instructors = () => {
-    const [, users] = useUsers();
+    const [, instructors] = usePopularInstructors();
     return (
         <Container>
             <SectionTitle
@@ -14,9 +14,9 @@ const Instructors = () => {
             ></SectionTitle>
             <div className="grid md:grid-cols-3 gap-5">
                 {
-                    users.map((user, index) =>
+                    instructors?.map(instructor =>
                         <InstructorCard
-                            key={index}
+                            key={instructor._id}
                             instructor={instructor}
                         ></InstructorCard>
                     )

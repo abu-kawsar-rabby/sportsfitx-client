@@ -1,4 +1,5 @@
-import { BsFillHouseAddFill } from "react-icons/bs";
+import { AiOutlineFolderAdd } from "react-icons/ai";
+import { CiViewList } from "react-icons/ci";
 import { NavLink } from "react-router-dom";
 
 const InstructorMenu = () => {
@@ -11,7 +12,7 @@ const InstructorMenu = () => {
                     }`
                 }
             >
-                <BsFillHouseAddFill className='w-5 h-5' />
+                <AiOutlineFolderAdd className='w-5 h-5' />
 
                 <span className='mx-4 font-medium'>Add New Class</span>
             </NavLink>
@@ -22,7 +23,7 @@ const InstructorMenu = () => {
                     }`
                 }
             >
-                <BsFillHouseAddFill className='w-5 h-5' />
+                <CiViewList className='w-5 h-5' />
 
                 <span className='mx-4 font-medium'>My Classes</span>
             </NavLink>
