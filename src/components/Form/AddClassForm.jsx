@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { AuthContext } from '../../providers/AuthProviders';
-const AddClassForm = ({ handleSubmit, loading }) => {
+const AddClassForm = ({ classItem, handleSubmit, loading }) => {
     const { user } = useContext(AuthContext);
     return (
-        <div className='md:w-3/4 mx-auto min-h-[calc(100vh-40px)] text-gray-800 p-10 rounded-box shadow-lg'>
+        <div className='md:w-1/2 mx-auto text-gray-800 p-10 rounded-box shadow-lg'>
             <form onSubmit={handleSubmit}>
                 <div className='space-y-3'>
                     <div className='text-sm space-y-1'>
@@ -18,6 +18,7 @@ const AddClassForm = ({ handleSubmit, loading }) => {
                             id='className'
                             type='text'
                             placeholder='Class Name'
+                            defaultValue={classItem?.className}
                             required
                         />
                     </div>
@@ -40,6 +41,7 @@ const AddClassForm = ({ handleSubmit, loading }) => {
                                 type='text'
                                 placeholder={user?.displayName}
                                 value={user?.displayName}
+                                defaultValue={classItem?.instructor?.name}
                                 readOnly
                             />
                         </div>
@@ -54,6 +56,7 @@ const AddClassForm = ({ handleSubmit, loading }) => {
                                 type='text'
                                 value={user?.email}
                                 placeholder={user?.email}
+                                defaultValue={classItem?.instructor?.email}
                                 readOnly
                             />
                         </div>
@@ -69,6 +72,7 @@ const AddClassForm = ({ handleSubmit, loading }) => {
                                 id='price'
                                 type='number'
                                 placeholder='Price'
+                                defaultValue={classItem?.price}
                                 required
                             />
                         </div>
@@ -82,21 +86,10 @@ const AddClassForm = ({ handleSubmit, loading }) => {
                                 id='total_seats'
                                 type='number'
                                 placeholder='10'
+                                defaultValue={classItem?.total_seats}
                                 required
                             />
                         </div>
-                    </div>
-
-                    <div className='space-y-1 text-sm'>
-                        <label htmlFor='description' className='block font-bold text-gray-600'>
-                            Description
-                        </label>
-
-                        <textarea
-                            id='description'
-                            className='block  focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border border-rose-300 focus:outline-rose-500 rounded'
-                            name='description'
-                        ></textarea>
                     </div>
                 </div>
 
@@ -116,6 +109,7 @@ const AddClassForm = ({ handleSubmit, loading }) => {
 }
 
 AddClassForm.propTypes = {
+    classItem: PropTypes.any,
     handleSubmit: PropTypes.any,
     loading: PropTypes.any,
 };

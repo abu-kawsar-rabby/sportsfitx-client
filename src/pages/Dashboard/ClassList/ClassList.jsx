@@ -1,7 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
+import useClass from "../../../hooks/useClass";
 
 const ClassList = () => {
-    const classes = useLoaderData();
+    const [, classes] = useClass();
 
     return (
         <div>
@@ -12,11 +13,12 @@ const ClassList = () => {
                         <tr>
                             <th>#</th>
                             <th>Title</th>
-                            <th>price</th>
+                            <th>Price</th>
                             <th>Available Seats</th>
                             <th>Status</th>
-                            <th>feedback (if Deny)</th>
-                            <th>btn</th>
+                            <th>Total Enrolled Students</th>
+                            <th>Update</th>
+                            <th>Feedback (if Any)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,12 +29,18 @@ const ClassList = () => {
                                 <td>{classItem.price}</td>
                                 <td>{classItem.total_seats}</td>
                                 <td>{classItem.status}</td>
+                                <td className="text-center">{classItem?.enrollment
+                                    ? classItem?.enrollment
+                                    : 0}
+                                </td>
+                                <td> <Link
+                                    to={`/dashboard/update-class/${classItem._id}`}
+                                    className="btn-sportsfitx !p-3"
+                                >Update</Link>
+                                </td>
                                 <td>{classItem.feedback === ''
                                     ? 'No Feedback'
                                     : classItem.feedback}
-                                </td>
-                                <td> <button
-                                    disabled={classItem.role === 'admin'} className={`btn-sportsfitx ${classItem.status === 'pending' && 'disabled'}`}>Approved</button>
                                 </td>
 
                             </tr>

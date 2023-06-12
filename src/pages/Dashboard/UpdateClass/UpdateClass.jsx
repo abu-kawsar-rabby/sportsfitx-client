@@ -1,27 +1,39 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import AddClassForm from "../../../components/Form/AddClassForm";
 import { AuthContext } from "../../../providers/AuthProviders";
-import { useNavigate } from "react-router-dom";
-import { imageUploader } from "../../../api/imageUploader";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { imageUploader } from "../../../api/imageUploader";
+import { useQuery } from "@tanstack/react-query";
 
 
-const AddClass = () => {
-
+const UpdateClass = () => {
+    const { id } = useParams();
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
-    const [axiosSecure] = useAxiosSecure();
     const [loading, setLoading] = useState(false);
+    const [axiosSecure] = useAxiosSecure();
+
+    const { data: classItem = [] } = useQuery({
+        queryKey: ['my-classes'],
+        queryFn: async () => {
+            const res = await axiosSecure(`/classes/${id}`)
+            console.log('res from axios', res.data)
+            return res.data;
+        },
+    })
+
 
     // handle form submit
     const handleSubmit = event => {
         event.preventDefault()
         setLoading(true)
-        const className = event.target.className.value
-        const image = event.target.image.files[0]
-        const price = event.target.price.value
-        const total_seats = event.target.total_seats.value
+        const className = event.target.className.value;
+        const image = event.target.image.files[0];
+        const price = event.target.price.value;
+        const total_seats = event.target.total_seats.value;
 
         // Upload image
         imageUploader(image)
@@ -39,17 +51,15 @@ const AddClass = () => {
                     },
                 }
 
-                // post class data to server
-                axiosSecure.post('add-class', (classData))
+                // put class data to server
+                axiosSecure.put(`/classes/${id}`, classData)
                     .then(data => {
                         console.log(data)
                         setLoading(false)
-                        toast.success('Class Added!')
+                        toast.success('Class modified!')
                         navigate('/dashboard/my-classes')
                     })
-                    .catch(err => {
-                        console.log(err)
-                    })
+                    .catch(err => console.log(err))
                 setLoading(false)
             })
             .catch(err => {
@@ -58,11 +68,10 @@ const AddClass = () => {
             })
     }
 
-
-
     return (
         <>
             <AddClassForm
+                classItem={classItem}
                 handleSubmit={handleSubmit}
                 loading={loading}
             />
@@ -70,4 +79,4 @@ const AddClass = () => {
     );
 };
 
-export default AddClass;
+export default UpdateClass;

@@ -1,17 +1,11 @@
 import InstructorCard from "../../components/Card/InstructorCard";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import useUsers from "../../hooks/useUsers";
 import Container from "../shared/Container/Container";
 
 
 const Instructors = () => {
-    const carditem = [
-        { name: 'name' },
-        { name: 'name' },
-        { name: 'name' },
-        { name: 'name' },
-        { name: 'name' },
-        { name: 'name' },
-    ]
+    const [, users] = useUsers();
     return (
         <Container>
             <SectionTitle
@@ -20,14 +14,10 @@ const Instructors = () => {
             ></SectionTitle>
             <div className="grid md:grid-cols-3 gap-5">
                 {
-                    carditem.map((item, index) =>
+                    users.map((user, index) =>
                         <InstructorCard
                             key={index}
-                            img={'https://i.ibb.co/wsmh5Dx/317149.webp'}
-                            name={'Awland Doland'}
-                            email={'awland.doland@gmail.com'}
-                            total_class={20}
-                            class_names={['hi', 'hello', 'gelo']}
+                            user={user}
                         ></InstructorCard>
                     )
                 }

@@ -1,10 +1,10 @@
 import { toast } from "react-hot-toast";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import useUsers from "../../../hooks/useUsers"
+import useManageUsers from "../../../hooks/useManageUsers"
 
 const ManageUsers = () => {
 
-    const [refetch, users] = useUsers();
+    const [refetch, users] = useManageUsers();
     const [axiosSecure] = useAxiosSecure();
 
 

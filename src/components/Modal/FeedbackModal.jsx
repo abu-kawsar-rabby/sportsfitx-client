@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 
-const DenyModal = ({ modalRef, classItem, handleDeny, closeModal }) => {
+const FeedbackModal = ({ modalRef, classItem, handleFeedback, closeModal }) => {
     return (
         <dialog
             ref={ref => (modalRef.current[classItem._id] = ref)}
@@ -10,7 +10,7 @@ const DenyModal = ({ modalRef, classItem, handleDeny, closeModal }) => {
         >
             <div method="dialog" className="modal-box space-y-5">
                 <h3 className="font-bold text-lg">Feedback!</h3>
-                <form onSubmit={() => handleDeny(classItem)}>
+                <form onSubmit={() => handleFeedback(classItem)}>
                     <textarea
                         name='feedback'
                         className="textarea textarea-error w-full" placeholder="........." />
@@ -30,11 +30,11 @@ const DenyModal = ({ modalRef, classItem, handleDeny, closeModal }) => {
     );
 };
 
-DenyModal.propTypes = {
+FeedbackModal.propTypes = {
     modalRef: PropTypes.any,
     classItem: PropTypes.any,
-    handleDeny: PropTypes.any,
+    handleFeedback: PropTypes.any,
     closeModal: PropTypes.any
 };
 
-export default DenyModal;
+export default FeedbackModal;

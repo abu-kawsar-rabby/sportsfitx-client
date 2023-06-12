@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import { AuthContext } from "../providers/AuthProviders";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const axiosSecure = axios.create({
     baseURL: `${import.meta.env.VITE_API_URL}`
@@ -29,6 +30,7 @@ const useAxiosSecure = () => {
         // intercept response
         axiosSecure.interceptors.response.use(response => response, async error => {
             if (error.response && error.response.status === 401 || error.response && error.response.status === 403) {
+                toast.error('unathorized access')
                 await logOut();
                 navigate('/')
             }

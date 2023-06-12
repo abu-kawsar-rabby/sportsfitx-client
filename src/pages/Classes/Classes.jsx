@@ -1,15 +1,11 @@
 import Card from "../../components/Card/Card";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import useClasses from "../../hooks/useClasses";
 import Container from "../shared/Container/Container";
 
 
 const Classes = () => {
-    const carditem = [
-        { name: 'name' },
-        { name: 'name' },
-        { name: 'name' },
-        { name: 'name' },
-    ]
+    const [, classes] = useClasses();
     return (
         <Container>
             <SectionTitle
@@ -18,14 +14,10 @@ const Classes = () => {
             ></SectionTitle>
             <div className="grid md:grid-cols-4 gap-5">
                 {
-                    carditem.map((item, index) =>
+                    classes?.map((classItem, index) =>
                         <Card
                             key={index}
-                            img={'https://i.ibb.co/JyCXVQn/shohoje-spoken-arabic-mahade-hasan-16x9-thumbnail-new.webp'}
-                            title={"সহজে Spoken আরবি"}
-                            instructor={'Mahadi hasan'}
-                            seats={20}
-                            price={44}
+                            classItem={classItem}
                         ></Card>
                     )
                 }

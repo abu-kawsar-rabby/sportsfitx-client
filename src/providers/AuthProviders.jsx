@@ -13,7 +13,6 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [role, setRole] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [menuloading, setMenuloading] = useState(true);
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -22,7 +21,6 @@ const AuthProvider = ({ children }) => {
             axios.get(`${import.meta.env.VITE_API_URL}/users/${user.email}`)
                 .then(res => {
                     setRole(res.data.role)
-                    setMenuloading(false);
                 })
         }
     }, [user])
@@ -59,17 +57,18 @@ const AuthProvider = ({ children }) => {
             console.log('current user', currentUser);
 
             // // get and set token
-            // if(currentUser){
-            //     axios.post('https://bistro-boss-server-fawn.vercel.app/jwt', {email: currentUser.email})
-            //     .then(data =>{
-            //         // console.log(data.data.token)
-            //         localStorage.setItem('access-token', data.data.token)
-            setLoading(false);
-            //     })
-            // }
-            // else{
-            //     localStorage.removeItem('access-token')
-            // }
+            if (currentUser) {
+                axios.post(`${import.meta.env.VITE_API_URL}/jwt`, { email: currentUser.email })
+                    .then(data => {
+                        // console.log(data.data.token)
+                        localStorage.setItem('access-token', data.data.token)
+                        setLoading(false);
+                    })
+            }
+            else {
+                localStorage.removeItem('access-token')
+                setLoading(false);
+            }
 
 
         });
@@ -81,7 +80,6 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         loading,
-        menuloading,
         role,
         createUser,
         signIn,

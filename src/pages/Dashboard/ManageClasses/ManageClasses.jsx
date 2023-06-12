@@ -1,35 +1,42 @@
 import { useRef } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import DenyModal from '../../../components/Modal/DenyModal';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { toast } from 'react-hot-toast';
+import useManageClasses from '../../../hooks/useManageClasses';
+import FeedbackModal from '../../../components/Modal/FeedbackModal';
 
 const ManageClasses = () => {
-    const classes = useLoaderData();
+    const [refetch, classes] = useManageClasses();
     const modalRef = useRef({});
     const [axiosSecure] = useAxiosSecure();
 
     const handleApproved = classItem => {
-        axiosSecure.put(`/classes/${classItem._id}`, { status: 'approved', feedback: null })
+        axiosSecure.put(`/classes/${classItem._id}`, { status: 'approved' })
             .then(res => {
                 if (res.data.modifiedCount > 0) {
-                    toast.success('successfully approved')
+                    toast.success('successfully approved');
+                    refetch()
+                }
+            })
+    };
+    const handleDeny = classItem => {
+        axiosSecure.put(`/classes/${classItem._id}`, { status: 'denied' })
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    toast.success('successfully deny');
+                    refetch()
                 }
             })
     };
 
-    const handleDeny = classItem => {
+    const handleFeedback = classItem => {
         event.preventDefault();
         const form = event.target;
         const feedback = form.feedback.value;
-        axiosSecure.put(`/classes/${classItem._id}`,
-            {
-                status: 'deny',
-                feedback
-            })
+        axiosSecure.put(`/classes/${classItem._id}`, { feedback })
             .then(res => {
                 if (res.data.modifiedCount > 0) {
-                    toast.success('successfully deny')
+                    toast.success('Feedback done')
+                    refetch();
                     form.reset();
                     closeModal(classItem);
                 }
@@ -64,6 +71,7 @@ const ManageClasses = () => {
                             <th>Status</th>
                             <th>Approved</th>
                             <th>Deny</th>
+                            <th>Feedback</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -92,33 +100,42 @@ const ManageClasses = () => {
                                 <td>
                                     <button
                                         onClick={() => handleApproved(classItem)}
-                                        disabled={classItem.status === 'approved'}
-                                        className={`btn-sportsfitx ${classItem.status === 'approved' && 'disabled'}`}
+                                        disabled={classItem.status === 'approved' || classItem.status === 'denied'}
+                                        className={`btn-sportsfitx ${classItem.status === 'approved' && classItem.status === 'denied' && 'disabled'}`}
                                     >
                                         Approved
                                     </button>
                                 </td>
                                 <td>
                                     <button
-                                        onClick={() => openModal(classItem)}
-                                        disabled={classItem.status === 'deny'}
-                                        className={`btn-sportsfitx ${classItem.status === 'deny' && 'disabled'}`}
+                                        onClick={() => handleDeny(classItem)}
+                                        disabled={classItem.status === 'denied' || classItem.status === 'approved'}
+                                        className={`btn-sportsfitx ${classItem.status === 'denied' && classItem.status === 'approved' && 'disabled'}`}
                                     >
                                         Deny
                                     </button>
-                                    <DenyModal
+                                </td>
+                                <td>
+                                    <button
+                                        onClick={() => openModal(classItem)}
+                                        disabled={classItem.status === 'pending'}
+                                        className={`btn-sportsfitx ${classItem.status === 'pending' && 'disabled'}`}
+                                    >
+                                        Feedback
+                                    </button>
+                                    <FeedbackModal
                                         modalRef={modalRef}
                                         classItem={classItem}
-                                        handleDeny={handleDeny}
+                                        handleFeedback={handleFeedback}
                                         closeModal={closeModal}
-                                    ></DenyModal>
+                                    ></FeedbackModal>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     );
 };
 

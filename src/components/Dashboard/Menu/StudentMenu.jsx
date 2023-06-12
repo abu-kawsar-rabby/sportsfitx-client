@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { BsFillHouseAddFill, BsFingerprint } from 'react-icons/bs'
 
-const UserMenu = () => {
+const StudentMenu = () => {
     return (
         <>
             <NavLink
@@ -39,4 +39,4 @@ const UserMenu = () => {
     )
 }
 
-export default UserMenu
+export default StudentMenu

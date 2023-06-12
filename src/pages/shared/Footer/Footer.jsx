@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import Container from "../Container/Container";
 
 
@@ -36,7 +37,7 @@ const Footer = () => {
                         <p>Badminton School & Sports Club Template Kit by Jegtheme</p>
                     </div>
                     <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-                        <p>Copyright © 2023 - All right reserved</p>
+                        <p>Copyright © {moment().format('YYYY')} - All right reserved</p>
                     </div>
                 </footer>
             </Container>

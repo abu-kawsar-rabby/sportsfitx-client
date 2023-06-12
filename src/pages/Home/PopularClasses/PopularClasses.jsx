@@ -1,15 +1,48 @@
+import Swal from "sweetalert2";
 import Card from "../../../components/Card/Card";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useClasses from "../../../hooks/useClasses";
 import Container from "../../shared/Container/Container";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProviders";
 
 
 const PopularClasses = () => {
-    const carditem = [
-        { name: 'name' },
-        { name: 'name' },
-        { name: 'name' },
-        { name: 'name' },
-    ]
+    const [refetch, classes] = useClasses();
+    const [axiosSecure] = useAxiosSecure();
+    const { user } = useContext(AuthContext);
+    console.log(user);
+
+    const handleSelectClass = classItem => {
+        const selectedClass = {
+            studentName: user.displayName,
+            studentEmail: user.email,
+            classId: classItem._id,
+            className: classItem.className,
+            image: classItem.image,
+            total_seats: classItem.total_seats,
+            price: classItem.price,
+            instructor: classItem.instructor
+        }
+        axiosSecure.post('/selected-class', selectedClass)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.insertedId) {
+                    refetch();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Selected successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     return (
         <Container>
             <SectionTitle
@@ -18,12 +51,11 @@ const PopularClasses = () => {
             ></SectionTitle>
             <div className="grid md:grid-cols-4 gap-5">
                 {
-                    carditem.map((item, index) =>
+                    classes.map(classItem =>
                         <Card
-                            key={index}
-                            img={'https://i.ibb.co/JyCXVQn/shohoje-spoken-arabic-mahade-hasan-16x9-thumbnail-new.webp'}
-                            title={"সহজে Spoken আরবি"}
-                            instructor={'Mahadi hasan'}
+                            key={classItem._id}
+                            classItem={classItem}
+                            handleSelectClass={handleSelectClass}
                         ></Card>
                     )
                 }

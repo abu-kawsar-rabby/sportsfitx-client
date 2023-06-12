@@ -1,9 +1,10 @@
+import moment from "moment/moment";
 
 const DashboardFooter = () => {
     return (
         <footer className="footer footer-center p-4 text-base-content">
             <div>
-                <p>Copyright © 2023 - All right reserved by SportsFitX</p>
+                <p>Copyright © {moment().format('YYYY')} - All right reserved by SportsFitX</p>
             </div>
         </footer>
     );
