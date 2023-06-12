@@ -17,7 +17,7 @@ const Instructors = () => {
                     users.map((user, index) =>
                         <InstructorCard
                             key={index}
-                            user={user}
+                            instructor={instructor}
                         ></InstructorCard>
                     )
                 }

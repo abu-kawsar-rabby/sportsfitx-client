@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 
-const InstructorCard = ({ user }) => {
-    const { email, image, name } = user;
-    console.log(user)
+const InstructorCard = ({ instructor }) => {
+    const { email, image, name } = instructor;
+    console.log(instructor)
     return (
         <div className="md:hover:-mt-4 ease-linear duration-200">
-            <div className="card w-96 h-[80vh] glass">
+            <div className="card w-96 glass">
                 <figure><img src={image}
                     alt="car!" /></figure>
                 <div className="card-body">
