@@ -5,7 +5,7 @@ const InstructorCard = ({ instructor }) => {
     console.log(instructor)
     return (
         <div className="md:hover:-mt-4 ease-linear duration-200">
-            <div className="card w-96 glass">
+            <div className="card w-80 mx-auto glass">
                 <figure><img src={image}
                     className='w-screen h-[45vh]'
                     alt="" /></figure>
