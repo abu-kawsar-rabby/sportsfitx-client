@@ -40,7 +40,7 @@ const Navbar = () => {
         logOut();
     }
     return (
-        <div className="bg-black sticky top-0 z-10">
+        <div className="bg-black bg-opacity-70 w-full sticky top-0 z-10">
             <Container>
                 <div className="navbar">
                     <div className="navbar-start">

@@ -3,8 +3,14 @@ import SidebarHeader from "../SidebarHeader/SidebarHeader";
 import AdminMenu from '../Menu/AdminMenu';
 import InstructorMenu from '../Menu/InstructorMenu';
 import StudentMenu from '../Menu/StudentMenu';
+import { BarLoader } from "react-spinners";
 
-const SidebarMenu = ({ handleLogOut, isActive, role, user }) => {
+const SidebarMenu = ({ handleLogOut, isActive, user, role, isLoading }) => {
+
+    if (isLoading) {
+        return <BarLoader></BarLoader>
+    }
+
     return (
         <div
             className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${isActive && '-translate-x-full'
@@ -19,12 +25,10 @@ const SidebarMenu = ({ handleLogOut, isActive, role, user }) => {
                     <nav>
                         {
                             role === 'admin'
-                                ? (<AdminMenu />)
+                                ? <AdminMenu />
                                 : role === 'instructor'
-                                    ? (<InstructorMenu />)
-                                    : role === 'student'
-                                    && (<StudentMenu />)
-
+                                    ? <InstructorMenu />
+                                    : <StudentMenu />
                         }
                     </nav>
                 </div>

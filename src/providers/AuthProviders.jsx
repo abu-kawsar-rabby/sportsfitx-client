@@ -3,27 +3,17 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStat
 import { app } from "../firebase/firebase.config";
 import axios from 'axios';
 
-
 export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [role, setRole] = useState(null);
     const [loading, setLoading] = useState(true);
 
     const googleProvider = new GoogleAuthProvider();
 
-    useEffect(() => {
-        if (user) {
-            axios.get(`${import.meta.env.VITE_API_URL}/users/${user.email}`)
-                .then(res => {
-                    setRole(res.data.role)
-                })
-        }
-        setRole(null)
-    }, [user])
+
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -80,7 +70,6 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         loading,
-        role,
         createUser,
         signIn,
         googleSignIn,

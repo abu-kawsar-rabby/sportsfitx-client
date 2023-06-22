@@ -16,13 +16,13 @@ const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <Font family='Barlow'> */}
+    <AuthProvider>
       <QueryClientProvider client={queryClient}>
-        <AuthProvider>
-          <Toaster />
-          <RouterProvider router={router}>
-          </RouterProvider>
-        </AuthProvider>
+        <Toaster />
+        <RouterProvider router={router}>
+        </RouterProvider>
       </QueryClientProvider>
+    </AuthProvider>
     {/* </Font> */}
   </React.StrictMode>,
 )

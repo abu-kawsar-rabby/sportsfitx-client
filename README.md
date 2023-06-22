@@ -24,8 +24,8 @@ SportsFitX is a web application built using the MERN stack that focuses on fitne
 
 ## Installation
 
-1. Clone the frontend repository: [GitHub - Frontend](https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-abu-kawsar-rabby)
-2. Clone the backend repository: [GitHub - Backend](https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-abu-kawsar-rabby)
+1. Clone the frontend repository: [GitHub - Frontend](https://github.com/abu-kawsar-rabby/sportsfitx-client)
+2. Clone the backend repository: [GitHub - Backend](https://github.com/abu-kawsar-rabby/sportsfitx-server)
 3. Install the dependencies for both the frontend and backend using `npm install` in their respective directories.
 4. Start the development server for the frontend using `npm start` in the frontend directory.
 5. Start the backend server using `npm start` in the backend directory.
