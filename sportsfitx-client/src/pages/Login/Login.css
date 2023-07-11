@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
+.bg-image {
+    background-image: url('https://i.ibb.co/CzqGvcp/bg.jpg');
+    background-size: cover;
+}
+

@@ -1,0 +1,9 @@
+.active {
+    color: red;
+}
+
+
+.red:hover {
+    color: red;
+    transition: ease-in-out;
+}
